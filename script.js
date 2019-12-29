@@ -13,3 +13,23 @@ function mult(a, b){
 function divide(a, b){
     return a / b;
 }
+
+function operate(op, a, b){
+    switch (op){
+        case "+": 
+            return add(a, b);
+            break;
+        case "-":
+            return sub(a, b);
+            break;
+        case "*":
+            return mult(a, b);
+            break;
+        case "/":
+            return divide(a, b);
+            break;
+        default:
+            return "Operator error";
+            break;
+    }
+}
