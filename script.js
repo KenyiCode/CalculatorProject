@@ -1,5 +1,5 @@
 function add(a, b){
-    return a + b;
+    return Number.parseInt(a) + Number.parseInt(b);
 }
 
 function sub(a, b){
@@ -40,6 +40,7 @@ document.getElementById('button_layout').addEventListener('click', function(e){
         if (calcInput.value == "0" || opBool){
             calcInput.value = e.target.textContent;
             console.log(calcInput.value);
+            console.log(tempValue);
             opBool = false;
         }
         else{
@@ -54,11 +55,13 @@ document.getElementById('button_layout').addEventListener('click', function(e){
         currentOp = e.target.textContent;
         console.log(currentOp);
         opBool = true;
+        tempValue = calcInput.value;
     }
 })
 
 let opBool = false;
 let tempValue = 0, operator = '';
+let result = 0;
 let btnValues = [0,1,2,3,4,5,6,7,8,9];
 let btnNumbers = document.getElementsByClassName("number");
 
@@ -71,4 +74,12 @@ let currentOp = "";
 //Event for clear button function
 let clearBtn = document.getElementById("clear").addEventListener('click', function(){
     calcInput.value = '0';
+})
+
+document.getElementById('equal').addEventListener('click', function(e){
+    if (e.target){
+        result = operate(currentOp, tempValue, calcInput.value);
+        calcInput.value = result;
+        console.log(result);
+    }
 })
