@@ -11,7 +11,11 @@ function mult(a, b){
 }
 
 function divide(a, b){
-    return a / b;
+    if (a == 0 || b == 0){
+        return "You can't do that, stupid.";
+    }
+    let temp = a / b;
+    return Math.round(temp * 100)/100;
 }
 
 function operate(op, a, b){
@@ -67,7 +71,7 @@ let clearBtn = document.getElementById("clear").addEventListener('click', functi
     tempValue = 0;
 })
 
-//Event for operator choice
+// //Event for operator choice
 document.getElementById('button_layout').addEventListener('click', function(e){
     if (e.target && e.target.matches('.operator')){
         currentOp = e.target.textContent;
@@ -77,11 +81,13 @@ document.getElementById('button_layout').addEventListener('click', function(e){
     }
 })
 
+
 //Event for displaying result after clicking equals button
-document.getElementById('equal').addEventListener('click', function(e){
-    if (e.target){
+document.getElementById('equal').addEventListener('click', calcResult);
+
+function calcResult(e){
         result = operate(currentOp, tempValue, calcInput.value);
         calcInput.value = result;
         console.log(result);
-    }
-})
+        opBool = false;
+}
