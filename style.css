@@ -1,0 +1,33 @@
+#outer_border {
+  border: solid 1px black;
+  display: flex;
+  width: 191px;
+  position: absolute;
+  left: 40%;
+  top: 100px;
+  flex-direction: column;
+  flex-wrap: : wrap;
+}
+
+#textField {
+  height: 20px;
+  text-align: end;
+  font-size: 20px;
+}
+
+.number, .operator {
+  font-size: 20px;
+}
+
+.number {
+  width: 20px;
+}
+
+.operator {
+  width: 43.8px;
+}
+
+
+#equal, #clear {
+  width: 92.7px;
+}
